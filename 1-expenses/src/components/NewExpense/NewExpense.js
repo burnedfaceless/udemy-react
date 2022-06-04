@@ -12,14 +12,21 @@ const NewExpense = props => {
     props.onAddExpense(expenseData)
   }
 
-  const toggleShowForm = () => {
-    props.toggleShowForm()
+  const [showForm, setShowForm] = useState(false)
+
+
+  const makeFormVisible = () => {
+    setShowForm(true)
   }
 
-  if (!props.showForm) {
+  const makeFormInvisible = () => {
+    setShowForm(false)
+  }
+
+  if (!showForm) {
     return (
         <div className='new-expense'>
-          <button onClick={toggleShowForm}>Show Form</button>
+          <button onClick={makeFormVisible}>Show Form</button>
         </div>
     )
   }
@@ -28,7 +35,7 @@ const NewExpense = props => {
       <div className='new-expense'>
         <ExpenseForm
             onSaveExpenseData={saveExpenseDataHandler}
-            toggleShowForm={toggleShowForm}
+            makeFormInvisible={makeFormInvisible}
         />
       </div>
   )

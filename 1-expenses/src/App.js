@@ -31,18 +31,10 @@ const App = () => {
     updateExpenses(prevState => [...prevState, expense])
   }
 
-  const [showForm, setShowForm] = useState(false)
-
-  const toggleShowForm = () => {
-    setShowForm(prevShowForm => !prevShowForm)
-  }
-
   return (
     <div>
       <NewExpense
           onAddExpense={addExpenseHandler}
-          showForm={showForm}
-          toggleShowForm={toggleShowForm}
       />
       <Expenses
           expenses={expenses}
