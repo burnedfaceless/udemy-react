@@ -12,9 +12,24 @@ const NewExpense = props => {
     props.onAddExpense(expenseData)
   }
 
+  const toggleShowForm = () => {
+    props.toggleShowForm()
+  }
+
+  if (!props.showForm) {
+    return (
+        <div className='new-expense'>
+          <button onClick={toggleShowForm}>Show Form</button>
+        </div>
+    )
+  }
+
   return (
       <div className='new-expense'>
-        <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+        <ExpenseForm
+            onSaveExpenseData={saveExpenseDataHandler}
+            toggleShowForm={toggleShowForm}
+        />
       </div>
   )
 }
