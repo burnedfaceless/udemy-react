@@ -1,0 +1,14 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+body {
+    background: #ccc;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
